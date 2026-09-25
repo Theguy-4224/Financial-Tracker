@@ -9,6 +9,7 @@ import { BudgetProgress, getBudgetProgress } from './BudgetProgress'
 import { MonthSelector } from './MonthSelector'
 import { MonthlySummary } from './MonthlySummary'
 import { TransactionList } from './TransactionList'
+import { FinanceWidgets } from './FinanceWidgets'
 import type { SettingsSection } from './SettingsScreen'
 
 interface HomeScreenProps {
@@ -64,6 +65,15 @@ export function HomeScreen({
           income={monthlyIncome}
           expenses={monthlyExpenses}
           currency={data.settings.currency}
+        />
+
+        <FinanceWidgets
+          income={monthlyIncome}
+          expenses={monthlyExpenses}
+          subscriptions={data.subscriptions}
+          today={today}
+          currency={data.settings.currency}
+          onManageSubscriptions={() => onOpenStageFive('subscriptions')}
         />
 
         <section className="rounded-[1.75rem] bg-white p-5 shadow-sm ring-1 ring-slate-200/80">
